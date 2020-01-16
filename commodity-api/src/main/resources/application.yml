@@ -31,3 +31,7 @@ eureka:
 #    response:
 #      enabled: true
 
+# 开启feign中的HTTPClient底层应用
+feign:
+  httpclient:
+    enabled: true

@@ -62,8 +62,8 @@ public class CommodityController {
 	 */
 	@GetMapping("/add")
 	public Commodity add(Commodity pojo){
-		// return service.add(pojo);
-		return commodityService.addWithPOST(pojo);
+		return commodityService.add(pojo);
+		//return commodityService.addWithPOST(pojo);
 	}
 	
 }
