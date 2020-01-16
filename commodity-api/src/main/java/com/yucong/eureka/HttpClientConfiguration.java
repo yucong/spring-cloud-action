@@ -1,4 +1,4 @@
-package com.yucong.eureka.config;
+package com.yucong.eureka;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 public class HttpClientConfiguration {
 
 	@Bean
-    public HttpClient httpClient(){
+    public HttpClient httpClient() {
         System.err.println("初始化 init feign httpclient configuration " );
         // 生成默认请求配置
         RequestConfig.Builder requestConfigBuilder = RequestConfig.custom();
