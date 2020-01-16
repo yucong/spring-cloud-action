@@ -9,11 +9,13 @@
 	<groupId>com.yucong</groupId>
 	<artifactId>commodity-api</artifactId>
 	<version>1.0</version>
+	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -25,16 +27,20 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
 	<dependencies>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<!-- spring cloud 默认配置启动器 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -75,4 +81,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	
 </project>
