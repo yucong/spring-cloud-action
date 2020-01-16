@@ -22,7 +22,7 @@ public class HttpClientConfiguration {
 
 	@Bean
     public HttpClient httpClient(){
-        System.out.println("init feign httpclient configuration " );
+        System.err.println("初始化 init feign httpclient configuration " );
         // 生成默认请求配置
         RequestConfig.Builder requestConfigBuilder = RequestConfig.custom();
         // 超时时间
