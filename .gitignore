@@ -1,6 +1,6 @@
 application-prod.yml
 /logs/
-/target/
+*/target/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
