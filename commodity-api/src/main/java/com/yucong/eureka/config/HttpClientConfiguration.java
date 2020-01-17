@@ -1,4 +1,4 @@
-package com.yucong.eureka;
+package com.yucong.eureka.config;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -20,6 +20,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class HttpClientConfiguration {
 
+	/**
+	 * TODO 实际上并没有生效，需要进一步分析排查 2020-01-17
+	 */
 	@Bean
     public HttpClient httpClient() {
         System.err.println("初始化 init feign httpclient configuration " );
@@ -52,6 +55,9 @@ public class HttpClientConfiguration {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
+            	
+            	System.err.println("定时任务开始执行。。。。");
+            	
                 pollingConnectionManager.closeExpiredConnections();
                 pollingConnectionManager.closeIdleConnections(5, TimeUnit.SECONDS);
             }
