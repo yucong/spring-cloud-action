@@ -22,6 +22,7 @@ public class HttpClientConfiguration {
 
 	/**
 	 * TODO 实际上并没有生效，需要进一步分析排查 2020-01-17
+	 * 初步结论：feign的底层已经实现了，无需再定义httpClient
 	 */
 	@Bean
     public HttpClient httpClient() {

@@ -31,6 +31,14 @@ public class CommodityServiceImpl implements CommodityService {
 		result.add("test feign");
 		result.add("this is first spring cloud with feign");
 		
+		// 休眠1s，ribbo的默认超时时间为1s
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		
 		return result;
 	}
 
