@@ -16,7 +16,7 @@ import com.yucong.api.service.CommodityService;
  * 则必须遵循服务标准。
  */
 @RestController
-public class CommodityServiceImpl implements CommodityService {
+public class FeignServiceImpl implements CommodityService {
 
 	/**
 	 * 因为当前的方法都是实现接口FirstFeignService中的方法。
@@ -61,6 +61,14 @@ public class CommodityServiceImpl implements CommodityService {
 	 */
 	@Override
 	public FeignTestPOJO getByIdWithPOST(@RequestBody Long id) {
+		
+		// 休眠1s，ribbo的默认超时时间为1s
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
 		return new FeignTestPOJO(id, "getByIdWithPOST");
 	}
 
