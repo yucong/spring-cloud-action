@@ -11,7 +11,7 @@ import com.yucong.api.service.CommodityService;
  * 注解有属性name - 代表当前的FeignClient在请求application service的时候，是调用哪一个服务？
  * 所谓的哪一个服务，就是application service全局配置文件中的spring.application.name属性值。
  */
-@FeignClient(name="commodity-service")
+@FeignClient(name="feign-service")
 public interface CommodityFeignService extends CommodityService {
 
 }
