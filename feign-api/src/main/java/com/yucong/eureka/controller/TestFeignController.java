@@ -8,20 +8,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yucong.api.pojo.Commodity;
-import com.yucong.eureka.service.CommodityFeignService;
+import com.yucong.eureka.service.FirstClientFeignService;
 
 /**
  * Application Client中的控制器。是和用户直接交互的控制器。
  * 像平时开发代码一样。调用本地的一个service接口。通过service接口远程访问Application Service。
  */
 @RestController
-public class CommodityController {
+public class TestFeignController {
 
 	/**
 	 * 本地定义的服务接口。用于实现远程调用application  service的接口。
 	 */
 	@Autowired
-	private CommodityFeignService commodityService;
+	private FirstClientFeignService commodityService;
 	
 	/**
 	 * 无参

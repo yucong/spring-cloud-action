@@ -12,6 +12,6 @@ import com.yucong.api.service.CommodityService;
  * 所谓的哪一个服务，就是application service全局配置文件中的spring.application.name属性值。
  */
 @FeignClient(name="feign-service")
-public interface CommodityFeignService extends CommodityService {
+public interface FirstClientFeignService extends CommodityService {
 
 }
