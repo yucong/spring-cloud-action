@@ -11,9 +11,9 @@
 	
 
     <modules>
-        <module>commodity-service</module>
-        <module>commodity-api</module>
-        <module>commodity-interface</module>
+        <module>feign-service</module>
+        <module>feign-api</module>
+        <module>feign-interface</module>
         <module>eureka-server</module>
         
     </modules>

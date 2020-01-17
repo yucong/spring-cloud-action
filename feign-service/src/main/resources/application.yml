@@ -2,7 +2,7 @@
 
 spring:
   application:
-    name: commodity-service
+    name: feign-service
 
 
 server:

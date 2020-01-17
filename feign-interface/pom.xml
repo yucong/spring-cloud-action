@@ -2,14 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<!-- <parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.1.RELEASE</version>
-	</parent> -->
-	
 	<groupId>com.yucong</groupId>
-	<artifactId>commodity-interface</artifactId>
+	<artifactId>feign-interface</artifactId>
 	<version>1.0</version>
 	
 	<properties>
@@ -20,12 +14,7 @@
 	
 	<dependencies>
 		
-		<!-- 主要使用其中的SpringMVC相关技术。将请求的URL和服务的方法耦合到一起。 -->
-		<!-- <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<scope>provided</scope>
-		</dependency> -->
+
 		
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -36,14 +25,7 @@
 		
 	</dependencies>
 	
-	<!-- <build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build> -->
+
 	
 	
 	<build>
