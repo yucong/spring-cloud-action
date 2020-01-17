@@ -21,7 +21,6 @@ eureka:
     instance-id: ${spring.cloud.client.ip-address}:${server.port} 
 
 
-
 #feign:
 #  compression:
 #    request:
@@ -31,12 +30,19 @@ eureka:
 #    response:
 #      enabled: true
 
-# 开启feign中的HTTPClient底层应用
+
 feign:
+  # 开启feign中的HttpClient底层应用
   httpclient:
+    enabled: true
+  # 开启feign中的服务降级
+  hystrix:
     enabled: true
 
 
+#########################################################
+##             Feign的超时配置                                                                     ##
+#########################################################
 # 1 超时策略的使用优先级： 指定服务的超时策略 -> 全局配置的超时策略 -> 默认的超时策略(默认1s) 
     
 # 2 全局服务配置(商业项目中不推荐使用)
@@ -47,7 +53,7 @@ feign:
 #  ReadTimeout: 5000
     
 # 3 部分服务配置
-commodity-service:
+feign-service:
   ribbon:
     # 对所有操作请求都进行重试
     OkToRetryOnAllOperations: true
@@ -58,5 +64,14 @@ commodity-service:
     # 请求处理的超时时间
     ReadTimeout: 3000
 
-    
-    
+#########################################################
+##             Feign的服务降级                                                                     ##
+#########################################################
+hystrix:
+  command:
+    "FirstClientFeignService#testFeign()":
+      fallback:
+        enabled: true    
+    "FirstClientFeignService#getById(Long)":
+      fallback:
+        enabled: true

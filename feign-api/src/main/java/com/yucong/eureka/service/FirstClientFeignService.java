@@ -24,8 +24,8 @@ import com.yucong.api.pojo.FeignTestPOJO;
  * feign声明式远程服务调用，在启动的时候，初始化过程比较慢。比ribbon要慢很多。
  * 很容易在第一次访问的时候，产生超时。导致返回fallback数据。
  */
-@FeignClient(name="test-feign-application-service",
-			// fallback=FirstClientFeignServiceImpl.class
+@FeignClient(name="feign-service",
+			//fallback=FirstClientFeignServiceImpl.class
 			fallbackFactory=FirstClientFeignServiceFallbackFactory.class
 		)
 public interface FirstClientFeignService{

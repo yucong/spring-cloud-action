@@ -1,14 +1,14 @@
 package com.yucong.api.pojo;
 
-public class Commodity {
+public class FeignTestPOJO {
 
 	private Long id;
 	private String name;
 	
-	public Commodity() {
+	public FeignTestPOJO() {
 		super();
 	}
-	public Commodity(Long id, String name) {
+	public FeignTestPOJO(Long id, String name) {
 		super();
 		this.id = id;
 		this.name = name;

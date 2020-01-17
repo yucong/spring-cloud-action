@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.yucong.api.pojo.Commodity;
+import com.yucong.api.pojo.FeignTestPOJO;
 
 /**
  * 微服务标准。
@@ -34,7 +34,7 @@ public interface CommodityService {
 	 * @return
 	 */
 	@RequestMapping(value="/get", method=RequestMethod.GET)
-	public Commodity getById(@RequestParam(value="id") Long id);
+	public FeignTestPOJO getById(@RequestParam(value="id") Long id);
 	
 	/**
 	 * 测试使用POST请求传递一个普通参数
@@ -47,7 +47,7 @@ public interface CommodityService {
 	 * @return
 	 */
 	@RequestMapping(value="/get", method=RequestMethod.POST)
-	public Commodity getByIdWithPOST(@RequestBody Long id);
+	public FeignTestPOJO getByIdWithPOST(@RequestBody Long id);
 	
 	/**
 	 * 使用GET请求传递多个普通参数。 /add?id=xxx&name=xxx
@@ -55,7 +55,7 @@ public interface CommodityService {
 	 * @return
 	 */
 	@RequestMapping(value="/add", method=RequestMethod.GET)
-	public Commodity add(@RequestParam("id") Long id, @RequestParam("name") String name);
+	public FeignTestPOJO add(@RequestParam("id") Long id, @RequestParam("name") String name);
 	
 	/**
 	 * 错误案例
@@ -64,7 +64,7 @@ public interface CommodityService {
 	 * @return
 	 */
 	@RequestMapping(value="/addWithGET", method=RequestMethod.GET)
-	public Commodity add(@RequestBody Commodity pojo);
+	public FeignTestPOJO add(@RequestBody FeignTestPOJO pojo);
 	
 	/**
 	 * 使用POST请求传递特殊参数。自定义类型的参数。
@@ -73,6 +73,6 @@ public interface CommodityService {
 	 * @return
 	 */
 	@RequestMapping(value="/addWithPOST", method=RequestMethod.POST)
-	public Commodity addWithPOST(@RequestBody Commodity pojo);
+	public FeignTestPOJO addWithPOST(@RequestBody FeignTestPOJO pojo);
 	
 }

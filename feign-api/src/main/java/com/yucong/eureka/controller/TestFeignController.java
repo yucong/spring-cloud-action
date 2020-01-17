@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yucong.api.pojo.Commodity;
+import com.yucong.api.pojo.FeignTestPOJO;
 import com.yucong.eureka.service.FirstClientFeignService;
 
 /**
@@ -36,7 +36,7 @@ public class TestFeignController {
 	 * 一个参数，调用远程服务的时候，发起的请求是GET请求
 	 */
 	@GetMapping("/get/{id}")
-	public Commodity getById(@PathVariable("id") Long id){
+	public FeignTestPOJO getById(@PathVariable("id") Long id){
 		return commodityService.getById(id);
 	}
 	
@@ -44,7 +44,7 @@ public class TestFeignController {
 	 * 一个参数，调用远程服务的时候，发起的请求是POST请求
 	 */
 	@GetMapping("/get")
-	public Commodity getByIdWithPOST(Long id){
+	public FeignTestPOJO getByIdWithPOST(Long id){
 		return commodityService.getByIdWithPOST(id);
 	}
 	
@@ -52,7 +52,7 @@ public class TestFeignController {
 	 * 多个参数，调用远程服务的时候，发起的请求是GET请求
 	 */
 	@GetMapping("/add/{id}/{name}")
-	public Commodity add(@PathVariable("id") Long id, @PathVariable("name") String name){
+	public FeignTestPOJO add(@PathVariable("id") Long id, @PathVariable("name") String name){
 		return commodityService.add(id, name);
 	}
 	
@@ -61,7 +61,7 @@ public class TestFeignController {
 	 * feign技术远程访问application service的时候，默认情况下GET请求不能传递自定义类型参数
 	 */
 	@GetMapping("/add")
-	public Commodity add(Commodity pojo){
+	public FeignTestPOJO add(FeignTestPOJO pojo){
 		return commodityService.add(pojo);
 		//return commodityService.addWithPOST(pojo);
 	}

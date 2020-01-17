@@ -38,33 +38,38 @@ public class FirstClientFeignServiceFallbackFactory implements FallbackFactory<F
 			public List<String> testFeign() {
 				logger.warn("testFeign() - ", cause);
 				List<String> result = new ArrayList<>();
-				result.add("this is testFeign method fallback datas");
+				result.add("this is testFeign factory method fallback datas");
 				return result;
 			}
 
 			@Override
 			public FeignTestPOJO getById(Long id) {
-				return new FeignTestPOJO(-1L, "this is getById method fallback datas");
+				logger.warn("getById(Long id) - ", cause);
+				return new FeignTestPOJO(-1L, "this is getById factory method fallback datas");
 			}
 
 			@Override
 			public FeignTestPOJO getByIdWithPOST(Long id) {
-				return new FeignTestPOJO(-1L, "this is getByIdWithPOST method fallback datas");
+				logger.warn("getByIdWithPOST(Long) - ", cause);
+				return new FeignTestPOJO(-1L, "this is getByIdWithPOST factory method fallback datas");
 			}
 
 			@Override
 			public FeignTestPOJO add(Long id, String name) {
-				return new FeignTestPOJO(-1L, "this is add(id, name) method fallback datas");
+				logger.warn("add(Long id, String name) - ", cause);
+				return new FeignTestPOJO(-1L, "this is add(id, name) factory method fallback datas");
 			}
 
 			@Override
 			public FeignTestPOJO add(FeignTestPOJO pojo) {
-				return new FeignTestPOJO(-1L, "this is add(pojo) method fallback datas");
+				logger.warn("add(FeignTestPOJO pojo) - ", cause);
+				return new FeignTestPOJO(-1L, "this is add(pojo) factory method fallback datas");
 			}
 
 			@Override
 			public FeignTestPOJO addWithPOST(FeignTestPOJO pojo) {
-				return new FeignTestPOJO(-1L, "this is addWithPOST method fallback datas");
+				logger.warn("addWithPOST(FeignTestPOJO pojo) - ", cause);
+				return new FeignTestPOJO(-1L, "this is addWithPOST factory method fallback datas");
 			}
 		};
 	}

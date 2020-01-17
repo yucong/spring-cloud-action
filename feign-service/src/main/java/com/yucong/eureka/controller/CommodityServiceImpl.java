@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yucong.api.pojo.Commodity;
+import com.yucong.api.pojo.FeignTestPOJO;
 import com.yucong.api.service.CommodityService;
 
 /**
@@ -43,8 +43,16 @@ public class CommodityServiceImpl implements CommodityService {
 	}
 
 	@Override
-	public Commodity getById(Long id) {
-		return new Commodity(id, "getById");
+	public FeignTestPOJO getById(Long id) {
+		
+		// 休眠1s，ribbo的默认超时时间为1s
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		return new FeignTestPOJO(id, "getById");
 	}
 	
 	/**
@@ -52,27 +60,27 @@ public class CommodityServiceImpl implements CommodityService {
 	 * 那么还是需要定义@RequestBody注解来描述方法参数的。
 	 */
 	@Override
-	public Commodity getByIdWithPOST(@RequestBody Long id) {
-		return new Commodity(id, "getByIdWithPOST");
+	public FeignTestPOJO getByIdWithPOST(@RequestBody Long id) {
+		return new FeignTestPOJO(id, "getByIdWithPOST");
 	}
 
 	@Override
-	public Commodity add(Long id, String name) {
+	public FeignTestPOJO add(Long id, String name) {
 		System.out.println( "add(Long id, String name)" );
-		return new Commodity(id, name);
+		return new FeignTestPOJO(id, name);
 	}
 	
 	/**
 	 * 在默认的情况下，Feign不能通过GET请求传递自定义类型的请求参数。
 	 */
 	@Override
-	public Commodity add(@RequestBody Commodity pojo) {
+	public FeignTestPOJO add(@RequestBody FeignTestPOJO pojo) {
 		System.out.println( "add(@RequestBody Commodity pojo)" );
 		return pojo;
 	}
 
 	@Override
-	public Commodity addWithPOST(@RequestBody Commodity pojo) {
+	public FeignTestPOJO addWithPOST(@RequestBody FeignTestPOJO pojo) {
 		System.out.println( "addWithPOST(@RequestBody Commodity pojo)" );
 		return pojo;
 	}
