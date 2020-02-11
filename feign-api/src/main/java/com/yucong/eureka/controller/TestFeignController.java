@@ -1,7 +1,10 @@
+
 package com.yucong.eureka.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +20,8 @@ import com.yucong.eureka.service.FirstClientFeignService;
 @RestController
 public class TestFeignController {
 
+	Logger logger = LoggerFactory.getLogger(TestFeignController.class);
+	
 	/**
 	 * 本地定义的服务接口。用于实现远程调用application  service的接口。
 	 */
@@ -28,7 +33,7 @@ public class TestFeignController {
 	 */
 	@GetMapping("/testFeign")
 	public List<String> testFeign(){
-		System.out.println(commodityService.getClass().getName());
+		logger.info( "commodityService.getClass().getName() : " + commodityService.getClass().getName() );
 		return commodityService.testFeign();
 	}
 	

@@ -14,3 +14,14 @@ eureka:
     # 是否从Eureka-Server中获取服务注册信息，默认为true。 必要
     fetch-registry: false
 
+# Property 'security.basic.enabled' is Deprecated: The security auto-configuration is no longer customizable. 
+# Provide your own WebSecurityConfigurer bean instead.
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: test
+#    password: test
+
+    
+    
