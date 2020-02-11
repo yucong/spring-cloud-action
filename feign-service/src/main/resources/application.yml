@@ -17,4 +17,11 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}    
+
+
+
+#endpoints:
+#  shutdown:
+#    enabled: true
+#    sensitive: false
     

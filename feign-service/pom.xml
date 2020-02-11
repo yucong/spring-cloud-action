@@ -62,6 +62,13 @@
 			<version>1.0</version>
 		</dependency>
 		
+		<!-- 优雅停服功能需要 -->
+		<!-- <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-actuator</artifactId>
+        </dependency> -->
+		
+		
 	</dependencies>
 	
 	<build>

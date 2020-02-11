@@ -10,6 +10,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
 // 启动发现机制: 就是辅助Feign技术，发现服务，定义服务动态代理的辅助技术。
+
+// 点对点直连测试时需求注释掉
 @EnableDiscoveryClient
 
 // 启动FeignClient技术: 开启Feign的应用

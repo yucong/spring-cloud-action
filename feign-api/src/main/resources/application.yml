@@ -51,6 +51,14 @@ feign:
 #  ConnectTimeout: 5000
 #  # 请求处理的超时时间
 #  ReadTimeout: 5000
+
+
+# 点对点直连测试时关闭ribbon访问注册中心Eureka Server发现服务
+#ribbon:
+#  eureka:
+#    enabled: false
+    
+
     
 # 3 部分服务配置
 feign-service:
@@ -63,7 +71,12 @@ feign-service:
     ConnectTimeout: 3000
     # 请求处理的超时时间
     ReadTimeout: 3000
-
+    
+    # 点对点直连测试,还需要配合以下两个操作
+    # 1、需要去掉@EnableDiscoveryClient
+    # 2、需要关闭ribbon访问注册中心EurekaServer，ribbon.eureka.enabled=false
+    # listOfServers: localhost:9000
+    
 #########################################################
 ##             Feign的服务降级                                                                     ##
 #########################################################
