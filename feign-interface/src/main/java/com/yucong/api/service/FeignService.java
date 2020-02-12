@@ -3,9 +3,8 @@ package com.yucong.api.service;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yucong.api.pojo.FeignTestPOJO;
@@ -33,7 +32,7 @@ public interface FeignService {
 	 * 且，无论方法参数名和请求参数名是否一致，都需要定义@RequestParam注解的value/name属性。
 	 * @return
 	 */
-	@RequestMapping(value="/get", method=RequestMethod.GET)
+	@GetMapping(value="/get")
 	public FeignTestPOJO getById(@RequestParam(value="id") Long id);
 	
 	/**
@@ -46,7 +45,7 @@ public interface FeignService {
 	 * POST请求的请求体类型还是application/json。feign会通过请求头传递多个请求参数： /xxx?a=xxx&b=xxx&c=xxx
 	 * @return
 	 */
-	@RequestMapping(value="/get", method=RequestMethod.POST)
+	@PostMapping(value="/get")
 	public FeignTestPOJO getByIdWithPOST(@RequestBody Long id);
 	
 	/**
@@ -54,7 +53,7 @@ public interface FeignService {
 	 * 必须使用@RequestParam注解处理请求参数。
 	 * @return
 	 */
-	@RequestMapping(value="/add", method=RequestMethod.GET)
+	@GetMapping(value="/add")
 	public FeignTestPOJO add(@RequestParam("id") Long id, @RequestParam("name") String name);
 	
 	/**
@@ -63,7 +62,7 @@ public interface FeignService {
 	 * 在Feign发起的默认的请求中，GET请求方式不能传递自定义类型数据。只能通过POST请求传递。
 	 * @return
 	 */
-	@RequestMapping(value="/addWithGET", method=RequestMethod.GET)
+	@GetMapping(value="/addWithGET")
 	public FeignTestPOJO add(@RequestBody FeignTestPOJO pojo);
 	
 	/**
@@ -72,7 +71,7 @@ public interface FeignService {
 	 * 必须使用@RequestBody处理。
 	 * @return
 	 */
-	@RequestMapping(value="/addWithPOST", method=RequestMethod.POST)
+	@PostMapping(value="/addWithPOST")
 	public FeignTestPOJO addWithPOST(@RequestBody FeignTestPOJO pojo);
 	
 }

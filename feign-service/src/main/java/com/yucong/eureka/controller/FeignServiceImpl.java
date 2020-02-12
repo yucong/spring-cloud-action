@@ -3,6 +3,8 @@ package com.yucong.eureka.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +20,8 @@ import com.yucong.api.service.FeignService;
 @RestController
 public class FeignServiceImpl implements FeignService {
 
+	Logger logger = LoggerFactory.getLogger(FeignServiceImpl.class);
+	
 	/**
 	 * 因为当前的方法都是实现接口FirstFeignService中的方法。
 	 * 而在接口中，已经将请求URL和方法耦合到一起了。
@@ -74,7 +78,7 @@ public class FeignServiceImpl implements FeignService {
 
 	@Override
 	public FeignTestPOJO add(Long id, String name) {
-		System.out.println( "add(Long id, String name)" );
+		logger.info( "add(Long id, String name)" );
 		return new FeignTestPOJO(id, name);
 	}
 	
@@ -83,13 +87,13 @@ public class FeignServiceImpl implements FeignService {
 	 */
 	@Override
 	public FeignTestPOJO add(@RequestBody FeignTestPOJO pojo) {
-		System.out.println( "add(@RequestBody Commodity pojo)" );
+		logger.info( "add(@RequestBody Commodity pojo)" );
 		return pojo;
 	}
 
 	@Override
 	public FeignTestPOJO addWithPOST(@RequestBody FeignTestPOJO pojo) {
-		System.out.println( "addWithPOST(@RequestBody Commodity pojo)" );
+		logger.info( "addWithPOST(@RequestBody Commodity pojo)" );
 		return pojo;
 	}
 	

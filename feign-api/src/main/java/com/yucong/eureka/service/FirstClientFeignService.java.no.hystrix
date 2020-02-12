@@ -2,7 +2,7 @@ package com.yucong.eureka.service;
 
 import org.springframework.cloud.openfeign.FeignClient;
 
-import com.yucong.api.service.CommodityService;
+import com.yucong.api.service.FeignService;
 
 /**
  * 本地接口，继承服务标准接口。
@@ -12,6 +12,6 @@ import com.yucong.api.service.CommodityService;
  * 所谓的哪一个服务，就是application service全局配置文件中的spring.application.name属性值。
  */
 @FeignClient(name="feign-service")
-public interface FirstClientFeignService extends CommodityService {
+public interface FirstClientFeignService extends FeignService {
 
 }

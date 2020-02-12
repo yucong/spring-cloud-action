@@ -26,15 +26,15 @@ public class TestFeignController {
 	 * 本地定义的服务接口。用于实现远程调用application  service的接口。
 	 */
 	@Autowired
-	private FirstClientFeignService commodityService;
+	private FirstClientFeignService firstClientService;
 	
 	/**
 	 * 无参
 	 */
 	@GetMapping("/testFeign")
 	public List<String> testFeign(){
-		logger.info( "commodityService.getClass().getName() : " + commodityService.getClass().getName() );
-		return commodityService.testFeign();
+		logger.info( "commodityService.getClass().getName() : " + firstClientService.getClass().getName() );
+		return firstClientService.testFeign();
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class TestFeignController {
 	 */
 	@GetMapping("/get/{id}")
 	public FeignTestPOJO getById(@PathVariable("id") Long id){
-		return commodityService.getById(id);
+		return firstClientService.getById(id);
 	}
 	
 	/**
@@ -50,7 +50,7 @@ public class TestFeignController {
 	 */
 	@GetMapping("/get")
 	public FeignTestPOJO getByIdWithPOST(Long id){
-		return commodityService.getByIdWithPOST(id);
+		return firstClientService.getByIdWithPOST(id);
 	}
 	
 	/**
@@ -58,17 +58,18 @@ public class TestFeignController {
 	 */
 	@GetMapping("/add/{id}/{name}")
 	public FeignTestPOJO add(@PathVariable("id") Long id, @PathVariable("name") String name){
-		return commodityService.add(id, name);
+		return firstClientService.add(id, name);
 	}
 	
 	/**
 	 * 自定义类型参数，调用远程服务的时候，发起的请求是POST请求
 	 * feign技术远程访问application service的时候，默认情况下GET请求不能传递自定义类型参数
+	 * 但是使用httpClient之后，就支持GET请求传递自定义参数（即json对象）
 	 */
 	@GetMapping("/add")
 	public FeignTestPOJO add(FeignTestPOJO pojo){
-		return commodityService.add(pojo);
-		//return commodityService.addWithPOST(pojo);
+		return firstClientService.add(pojo);
+		//return firstClientService.addWithPOST(pojo);
 	}
 	
 }

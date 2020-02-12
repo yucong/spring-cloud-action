@@ -12,7 +12,7 @@
 #### Feigin的使用注意事项
 
 1. 在Feign技术中应用GZIP压缩：可使用Spring Boot中的GZIP技术
-2. Feign的通讯优化：HttpClient客户端替换及HTTP连接池
+2. Feign的通讯优化：HttpClient客户端替换HttpURLConnection,支持HTTP连接池
 3. Feign默认使用的HttpURLConnection（不支持连接池）,使用HttpClint升级
 4. 当使用HttpClient技术作为Feign的底层HTTP技术应用时，
        使用GET请求方式请求头传递自定义类型对象是可行的，
