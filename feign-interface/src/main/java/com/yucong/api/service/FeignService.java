@@ -16,7 +16,7 @@ import com.yucong.api.pojo.FeignTestPOJO;
  * 也是Application Client要调用远程服务的标准。
  * 就是一个普通的接口。
  */
-public interface CommodityService {
+public interface FeignService {
 	
 	/**
 	 * 测试GET请求的方法。

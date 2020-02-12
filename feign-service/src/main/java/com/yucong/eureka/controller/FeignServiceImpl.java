@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.yucong.api.pojo.FeignTestPOJO;
-import com.yucong.api.service.CommodityService;
+import com.yucong.api.service.FeignService;
 
 /**
  * 自定义的服务控制器
@@ -16,7 +16,7 @@ import com.yucong.api.service.CommodityService;
  * 则必须遵循服务标准。
  */
 @RestController
-public class FeignServiceImpl implements CommodityService {
+public class FeignServiceImpl implements FeignService {
 
 	/**
 	 * 因为当前的方法都是实现接口FirstFeignService中的方法。
