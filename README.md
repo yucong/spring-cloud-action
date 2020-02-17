@@ -23,9 +23,10 @@
 
 
 
-#### 使用说明
+#### Hystrix的使用注意事项
 
-1. xxxx
+1. 从Dalston版本后，feigin默认关闭Hystrix支持
+     （需要在配置位置中声明：feign.hystrix.enabled=true）
 2. xxxx
 3. xxxx
 
