@@ -1,7 +1,7 @@
 
 spring:
   application:
-    name: feign-dashboard
+    name: dashboard
 
 
 server:
