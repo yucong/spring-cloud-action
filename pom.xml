@@ -15,7 +15,7 @@
         <module>feign-api</module>
         <module>feign-interface</module>
         <module>eureka-server</module>
-        
+        <module>dashboard</module>
     </modules>
 
     

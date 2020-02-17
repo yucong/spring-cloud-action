@@ -1,0 +1,23 @@
+
+spring:
+  application:
+    name: feign-dashboard
+
+
+server:
+  port: 7001
+  # 配置全局的GZIP压缩
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1:8761/eureka/
+
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} 
+
+
