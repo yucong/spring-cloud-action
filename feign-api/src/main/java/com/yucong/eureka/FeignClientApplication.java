@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 // import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 // import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -23,6 +25,10 @@ import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServl
 
 // 开启hystrix熔断器 
 @EnableCircuitBreaker
+
+//使用HyStrix Dashbord 数据监控需要添加以下两个注解
+@EnableHystrix
+@EnableHystrixDashboard
 
 @SpringBootApplication
 public class FeignClientApplication {
