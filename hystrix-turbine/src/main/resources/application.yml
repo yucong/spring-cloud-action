@@ -28,7 +28,9 @@ turbine:
   # 需要配置clusterNameExpression使用。
   aggregator:
     cluster-config: default
-  cluster-name-expression: "default"   
-
+  cluster-name-expression: new String('default')
+  combine-host-port: true
+  #没有的话会出现异常
+  instanceUrlSuffix: /hystrix.stream  
 
 

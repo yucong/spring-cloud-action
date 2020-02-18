@@ -38,17 +38,18 @@ public class FeignClientApplication {
 	}
 	
 	/**
-	 * 解决在使用hystrix dashboard仪表盘时，页面总是Unable to connect to Command Metric Stream
-	 * 使用Spring Cloud Finchley，尝试断路器（hystrix）功能，
+	 * springboot 版本如果是2.0则需要添加 ServletRegistrationBean
+	 * 因为springboot的默认路径不是 "/hystrix.stream"
+	 * @return
 	 */
 	@Bean
 	public ServletRegistrationBean<HystrixMetricsStreamServlet> getServlet() {
-		HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
-		ServletRegistrationBean<HystrixMetricsStreamServlet> registrationBean = new ServletRegistrationBean<HystrixMetricsStreamServlet>(streamServlet);
-		registrationBean.setLoadOnStartup(1);
-		registrationBean.addUrlMappings("/hystrix.stream");
-		registrationBean.setName("HystrixMetricsStreamServlet");
-		return registrationBean;
-	  }
+	    HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
+	    ServletRegistrationBean<HystrixMetricsStreamServlet> registrationBean = new ServletRegistrationBean<>(streamServlet);
+	    registrationBean.setLoadOnStartup(1);
+	    registrationBean.addUrlMappings("/hystrix.stream");
+	    registrationBean.setName("HystrixMetricsStreamServlet");
+	    return registrationBean;
+	}
 	
 }
