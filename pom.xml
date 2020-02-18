@@ -15,7 +15,8 @@
         <module>feign-api</module>
         <module>feign-interface</module>
         <module>eureka-server</module>
-        <module>dashboard</module>
+        <module>hystrix-dashboard</module>
+		<module>hystrix-turbine</module>
     </modules>
 
     

@@ -1,0 +1,34 @@
+
+spring:
+  application:
+    name: hystrix-turbine
+
+
+server:
+  port: 7002
+  # 配置全局的GZIP压缩
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eurekaserver1:8761/eureka/
+
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} 
+
+turbine:
+  # 配置Eureka中的serviceId列表，标记监控哪些服务，多个服务名用逗号分隔，可以配置监控的服务，必须开启了Hystrix Dashboard。
+  app-config: feign-api
+  # 指定聚合哪些集群，多个使用","分割，default代表默认集群。
+  # 集群就是服务名称。
+  # 需要配置clusterNameExpression使用。
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: "default"   
+
+
+
