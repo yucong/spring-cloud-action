@@ -9,7 +9,6 @@
     <version>1.0</version>
     <packaging>pom</packaging>
 	
-
     <modules>
         <module>feign-service</module>
         <module>feign-api</module>
@@ -17,9 +16,7 @@
         <module>eureka-server</module>
         <module>hystrix-dashboard</module>
 		<module>hystrix-turbine</module>
+		<module>zuul-server</module>
     </modules>
-
-    
-
 
 </project>

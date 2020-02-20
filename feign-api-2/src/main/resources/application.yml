@@ -5,7 +5,7 @@ spring:
 
 
 server:
-  port: 9008
+  port: 9009
   # 配置全局的GZIP压缩
   compression:
     enabled: true
@@ -51,16 +51,6 @@ feign:
 #  ConnectTimeout: 5000
 #  # 请求处理的超时时间
 #  ReadTimeout: 5000
-  
-ribbon:
-  # 对所有操作请求都进行重试
-  OkToRetryOnAllOperations: true
-  # 对当前实例的重试次数
-  MaxAutoRetries: 1
-  # 请求连接的超时时间
-  ConnectTimeout: 3000
-  # 请求处理的超时时间
-  ReadTimeout: 3000
 
 
 # 点对点直连测试时关闭ribbon访问注册中心Eureka Server发现服务
@@ -71,16 +61,16 @@ ribbon:
 
     
 # 3 部分服务配置
-#feign-service:
-#  ribbon:
-#    # 对所有操作请求都进行重试
-#    OkToRetryOnAllOperations: true
-#    # 对当前实例的重试次数
-#    MaxAutoRetries: 1
-#    # 请求连接的超时时间
-#    ConnectTimeout: 3000
-#    # 请求处理的超时时间
-#    ReadTimeout: 3000
+feign-service:
+  ribbon:
+    # 对所有操作请求都进行重试
+    OkToRetryOnAllOperations: true
+    # 对当前实例的重试次数
+    MaxAutoRetries: 1
+    # 请求连接的超时时间
+    ConnectTimeout: 3000
+    # 请求处理的超时时间
+    ReadTimeout: 3000
     
     # 点对点直连测试,还需要配合以下两个操作
     # 1、需要去掉@EnableDiscoveryClient
@@ -90,18 +80,6 @@ ribbon:
 #########################################################
 ##             Feign的服务降级                                                                     ##
 #########################################################
-#hystrix:
-#  command:
-#    "FirstClientFeignService#testFeign()":
-#      fallback:
-#        enabled: true    
-#    "FirstClientFeignService#getById(Long)":
-#      fallback:
-#        enabled: true
-#    "FirstClientFeignService#getByIdWithPOST(Long)":
-#      fallback:
-#        enabled: true
-
 hystrix:
   command:
     default:
@@ -135,6 +113,5 @@ hystrix:
         # 当该值设为5000时，则当触发circuit break后的5000毫秒内都会拒绝远程服务调用，
         # 也就是5000毫秒后才会重试远程服务调用。默认5000
         sleepWindowInMilliseconds: 5000
-        
         
         
