@@ -119,7 +119,7 @@ hystrix:
           strategy: thread
           thread:
             #命令执行超时时间，默认1000ms，只在线程池隔离中有效。
-            timeoutInMilliseconds: 5000
+            timeoutInMilliseconds: 7000
             # 发生超时是是否中断，默认true，只在线程池隔离中有效。
             interruptOnTimeout: true
       

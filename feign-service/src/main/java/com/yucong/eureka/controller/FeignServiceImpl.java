@@ -37,7 +37,7 @@ public class FeignServiceImpl implements FeignService {
 		
 		// 休眠1s，ribbo的默认超时时间为1s
 		try {
-			Thread.sleep(6000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
