@@ -17,7 +17,10 @@
      （需要在配置位置中声明：feign.hystrix.enabled=true）
 2. 使用Turbine做服务集群监控的时候，必须先启动application client集群，再启动Turbine。
         保证Turbine启动的时候，可以在eureka注册中心中发现要监控的服务集群
-3. xxxx
+3. feign配合hystrix时，hystrix的超时时间必须要大于ribbon的超时时间
+   hystrix的默认超时时间为1s，ribbon的超时时间还要算上重试时间，
+       如果hystrix的超时时间小于ribbon的超时时间，
+       一旦hystrix超时，立刻fallback，意味着ribbon的超时策略无效
 
 
 #### Zuul的使用注意事项

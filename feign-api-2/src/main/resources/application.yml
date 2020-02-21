@@ -94,8 +94,8 @@ hystrix:
           # 执行是否启用超时，默认启用true，只在线程池隔离中有效。
           enabled: true
         isolation:
-          # 隔离策略，默认是Thread, 可选Thread｜Semaphore
-          strategy: thread
+          # 隔离策略，默认是THREAD, 可选THREAD｜SEMAPHORE
+          strategy: THREAD
           thread:
             #命令执行超时时间，默认1000ms，只在线程池隔离中有效。
             timeoutInMilliseconds: 7000
