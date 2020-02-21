@@ -36,11 +36,11 @@ public class FeignServiceImpl implements FeignService {
 		result.add("this is first spring cloud with feign");
 		
 		// 休眠1s，ribbo的默认超时时间为1s
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+//		try {
+//			Thread.sleep(1000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		}
 		
 		
 		return result;
