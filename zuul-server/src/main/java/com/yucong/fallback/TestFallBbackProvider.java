@@ -19,6 +19,8 @@
 //import com.fasterxml.jackson.core.JsonProcessingException;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //
+//import lombok.extern.slf4j.Slf4j;
+//
 ///**
 // * 如果需要在Zuul网关服务中增加容错处理fallback，需要实现接口ZuulFallbackProvider
 // * spring-cloud框架，在Edgware版本之后，声明接口ZuulFallbackProvider过期失效，
@@ -34,7 +36,8 @@
 // *    如果使用新版本中定义的接口来做容错处理，容错处理逻辑，只运行子接口中定义的新方法。也就是有参方法。
 // *    是为远程服务发生异常的时候，通过异常的类型来运行不同的容错逻辑。
 // */
-//// @Component
+//@Slf4j
+//@Component
 //public class TestFallBbackProvider implements FallbackProvider {
 //
 //	/**
@@ -45,18 +48,45 @@
 //	 */
 //	@Override
 //	public String getRoute() {
-//		return "eureka-application-service";
+//		return "*";
 //	}
 //
 //	/**
+//	 * fallback逻辑。优先调用。可以根据异常类型动态决定处理方式。
+//	 */
+//	@Override
+//	public ClientHttpResponse fallbackResponse(String route, Throwable cause) {
+//		log.info("ClientHttpResponse fallbackResponse,route:{},cause:{}",route,cause.getMessage());
+//		if(cause instanceof NullPointerException){
+//			
+//			List<Map<String, Object>> result = new ArrayList<>();
+//			Map<String, Object> data = new HashMap<>();
+//			data.put("message", "网关超时，请稍后重试");
+//			result.add(data);
+//			
+//			ObjectMapper mapper = new ObjectMapper();
+//			
+//			String msg = "";
+//			try {
+//				msg = mapper.writeValueAsString(result);
+//			} catch (JsonProcessingException e) {
+//				msg = "";
+//			}
+//			return this.executeFallback(HttpStatus.GATEWAY_TIMEOUT, 
+//					msg, "application", "json", "utf-8");
+//		} else{
+//			return this.fallbackResponse();
+//		}
+//	}
+//	
+//	/*
 //	 * fallback逻辑。在早期版本中使用。
 //	 * Edgware版本之后，ZuulFallbackProvider接口过期，提供了新的子接口FallbackProvider
 //	 * 子接口中提供了方法ClientHttpResponse fallbackResponse(Throwable cause)。
 //	 * 优先调用子接口新定义的fallback处理逻辑。
 //	 */
-//	@Override
-//	public ClientHttpResponse fallbackResponse() {
-//		System.out.println("ClientHttpResponse fallbackResponse()");
+//	private ClientHttpResponse fallbackResponse() {
+//		log.info("ClientHttpResponse fallbackResponse()");
 //		
 //		List<Map<String, Object>> result = new ArrayList<>();
 //		Map<String, Object> data = new HashMap<>();
@@ -74,35 +104,6 @@
 //		
 //		return this.executeFallback(HttpStatus.OK, msg, 
 //				"application", "json", "utf-8");
-//	}
-//
-//	/**
-//	 * fallback逻辑。优先调用。可以根据异常类型动态决定处理方式。
-//	 */
-//	@Override
-//	public ClientHttpResponse fallbackResponse(Throwable cause) {
-//		System.out.println("ClientHttpResponse fallbackResponse(Throwable cause)");
-//		if(cause instanceof NullPointerException){
-//			
-//			List<Map<String, Object>> result = new ArrayList<>();
-//			Map<String, Object> data = new HashMap<>();
-//			data.put("message", "网关超时，请稍后重试");
-//			result.add(data);
-//			
-//			ObjectMapper mapper = new ObjectMapper();
-//			
-//			String msg = "";
-//			try {
-//				msg = mapper.writeValueAsString(result);
-//			} catch (JsonProcessingException e) {
-//				msg = "";
-//			}
-//			
-//			return this.executeFallback(HttpStatus.GATEWAY_TIMEOUT, 
-//					msg, "application", "json", "utf-8");
-//		}else{
-//			return this.fallbackResponse();
-//		}
 //	}
 //	
 //	/**

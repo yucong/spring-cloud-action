@@ -25,7 +25,8 @@
 
 #### Zuul的使用注意事项
 
-1. 
+1. Zuul的fallback容错处理逻辑，只针对timeout异常处理，
+        当请求被Zuul路由后，只要服务有返回（包括异常），都不会触发Zuul的fallback容错逻辑。
 2. 
 3. 
 4. 

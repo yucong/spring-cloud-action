@@ -2,6 +2,7 @@ package com.yucong.eureka.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+// import java.util.Random;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,12 +37,20 @@ public class FeignServiceImpl implements FeignService {
 		result.add("this is first spring cloud with feign");
 		
 		logger.info("testFeign()-->");
+		
+		/*Random r = new Random();
+		if(r.nextInt(100) % 4 == 0) {
+			throw new RuntimeException("除4为0异常");
+		} else if(r.nextInt(100) % 3 == 0) {
+			throw new NullPointerException("除3为0异常");
+		}*/
+		
 		// 休眠1s，ribbo的默认超时时间为1s
-//		try {
-//			Thread.sleep(500);
-//		} catch (InterruptedException e) {
-//			e.printStackTrace();
-//		}
+		try {
+			Thread.sleep(3100);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return result;
 	}
 

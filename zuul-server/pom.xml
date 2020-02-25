@@ -48,6 +48,21 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
+		
+		<!-- Zuul的限流保护需要额外依赖spring-cloud-zuul-ratelimit组件 -->
+		<dependency>
+		    <groupId>com.marcosbarbero.cloud</groupId>
+		    <artifactId>spring-cloud-zuul-ratelimit</artifactId>
+		    <version>1.3.4.RELEASE</version>
+		</dependency>
+		
+		<!-- zuul网关重试机制是使用spring-retry实现的 -->
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
+		</dependency>
+		
+		
 
 	</dependencies>
 	
