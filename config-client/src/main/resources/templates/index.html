@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>热刷新应用配置</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript">
+	/*
+	 * 注意： AJAX默认是不能做跨域访问的。当前的代码是为当前应用提供服务的。
+	 * 如果需要跨域访问，建议使用HTTPClient技术实现。或其他技术实现。
+	 */
+	function refresh(){
+		var url = $("#urlValue").val();
+		$.ajax({
+			'url' : url,
+			'type': 'post',
+			'success' : function(data){
+				alert(data);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<center>
+		刷新工程：<input type="text" name="urlValue" id="urlValue"/>
+		<input type="button" value="刷新" onclick="refresh();">
+	</center>
+</body>
+</html>
