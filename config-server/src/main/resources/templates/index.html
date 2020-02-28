@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>加解密测试工具</title>
+<script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript">
+	function encrypt(){
+		var source = $("#sourceEncrypt").val();
+		$.ajax({
+			'url' : 'http://localhost:10801/encrypt',
+			'type': 'post',
+			'data': source,
+			'success' : function(data){
+				$("#singEncrypt").val(data);
+			}
+		});
+	}
+	function decrypt(){
+		var sing = $("#singDecrypt").val();
+		$.ajax({
+			'url' : 'http://localhost:10801/decrypt',
+			'type': 'post',
+			'data': sing,
+			'success' : function(data){
+				$("#sourceDecrypt").val(data);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div style="padding-left: 100px; padding-right: 100px">
+		明文：<input type="text" name="urlValue" id="sourceEncrypt" style="width: 300px"/>
+		<br>
+		密文：<input type="text" name="urlValue" id="singEncrypt" style="width: 300px"/>
+		<input type="button" value="加密" onclick="encrypt();">
+		<hr>
+		密文：<input type="text" name="urlValue" id="singDecrypt" style="width: 300px"/>
+		<br>
+		明文：<input type="text" name="urlValue" id="sourceDecrypt" style="width: 300px"/>
+		<input type="button" value="解密" onclick="decrypt();">
+	</div>
+</body>
+</html>
