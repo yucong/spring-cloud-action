@@ -8,7 +8,8 @@
 	function encrypt(){
 		var source = $("#sourceEncrypt").val();
 		$.ajax({
-			'url' : 'http://localhost:10801/encrypt',
+			//'url' : 'http://localhost:10801/encrypt',
+			'url' : '/encrypt',
 			'type': 'post',
 			'data': source,
 			'success' : function(data){
@@ -19,7 +20,8 @@
 	function decrypt(){
 		var sing = $("#singDecrypt").val();
 		$.ajax({
-			'url' : 'http://localhost:10801/decrypt',
+			//'url' : 'http://localhost:10801/decrypt',
+			'url' : '/decrypt',
 			'type': 'post',
 			'data': sing,
 			'success' : function(data){

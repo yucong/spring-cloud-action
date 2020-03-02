@@ -51,16 +51,16 @@
 		</dependency>
 		
 		<!-- thymeleaf启动器 -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency> -->
+		</dependency>
 		
 		<!-- spring boot提供的基于Http Basic实现的用户认证。 -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency> -->
+		</dependency>
 		
 		<!-- 消息总线 -->
 		<!-- <dependency>

@@ -31,4 +31,16 @@
 3. 
 4. 
 
+#### Config的使用注意事项
+
+1. 配置中心加密时，需要下载jce_policy-8.zip，解压后，放到：
+   {JDK_HOME}/jre/lib/security/
+   {JDK_HOME}//lib/ 
+2. 在application.yml中配置秘钥有可能读取不到，依然报错：
+   {"description":"No key was installed for encryption service","status":"NO_KEY"}
+        需要将application.yml文件改成bootstrap.yml
+   
+           参考：https://blog.csdn.net/mobiusstrip/article/details/86525391 已验证通过     
+        
+3.
 
