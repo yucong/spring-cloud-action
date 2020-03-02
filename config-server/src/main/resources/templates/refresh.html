@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+
 <title>热刷新应用配置</title>
 <script type="text/javascript" src="jquery-1.9.1.js"></script>
+<script type="text/javascript" src="jquery.cookie.js"></script>
 <script type="text/javascript">
+	
+	$(function () {
+	    var token = $("meta[name='_csrf']").attr("content");
+	    var header = $("meta[name='_csrf_header']").attr("content");
+	    
+	    console.log("token:" + token);
+	    console.log("header:" + header);
+	    
+	    $(document).ajaxSend(function (e, xhr, options) {
+	        xhr.setRequestHeader(header, token);
+	    });
+	});
+	
 	/*
 	 * 注意： AJAX默认是不能做跨域访问的。当前的代码是为当前应用提供服务的。
 	 * 如果需要跨域访问，建议使用HTTPClient技术实现。或其他技术实现。
 	 */
 	function refresh(){
+		
+		var headers = {};
+		headers['X-CSRF-TOKEN'] = "[[${_csrf.token}]]";
+		
 		var url = $("#urlValue").val();
 		$.ajax({
 			'url' : url,
+			'headers': headers,
 			'type': 'post',
 			'success' : function(data){
 				//alert(data);

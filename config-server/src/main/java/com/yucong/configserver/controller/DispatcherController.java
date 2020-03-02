@@ -11,4 +11,9 @@ public class DispatcherController {
 		return "index";
 	}
 	
+	@GetMapping("/refresh")
+	public String refresh(){
+		return "refresh";
+	}
+	
 }
