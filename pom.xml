@@ -19,6 +19,11 @@
 		<module>zuul-server</module>
 		<module>config-server</module>
 		<module>config-client</module>
+		
+		<module>sleuth-order</module>
+		<module>sleuth-cart</module>
+		<module>sleuth-search</module>
+		
     </modules>
 
 </project>
