@@ -23,6 +23,9 @@ import com.yucong.api.pojo.FeignTestPOJO;
  * 服务降级，默认的情况下，包含了请求超时。
  * feign声明式远程服务调用，在启动的时候，初始化过程比较慢。比ribbon要慢很多。
  * 很容易在第一次访问的时候，产生超时。导致返回fallback数据。
+ * 
+ * 
+ * 重点来了：如果FeignClient指定了URL参数，会导致ribbon的超时时间配置失效 *****【之前遇到这个坑】
  */
 @FeignClient(name="feign-service",
 			//fallback=FirstClientFeignServiceImpl.class
